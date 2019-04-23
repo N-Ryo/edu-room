@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  resources :reviews
   root to: "home#index"
   resources :posts
   devise_scope :user do
