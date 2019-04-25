@@ -1,11 +1,44 @@
-<div class="top-bgimg absolute"></div>
-<div class="top-bgcover absolute animation"></div>
-<div class="delay-animation">
-  <div class="absolute title">EDU.ROOM</div>
-  <div class="absolute subTitle">「教えたい」と「教わりたい」を繋ぐ部屋。</div>
-  
-  <%= link_to new_user_session_path, class: "absolute button2" do %>
-    <p class="clik">Sign in</p>
-    <div class="hoveur"></div>
-  <% end %>
-</div>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>EduRoom</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+  </head>
+
+  <body>
+    <% if user_signed_in? %>
+      <menu>
+        <li>EDU.ROOM</li>
+        <li><a class="subject">科目</a></li>
+        <li>
+          <%= link_to  "マイページ", user_path %>
+          <%= link_to  "部屋を作る", new_post_path %>
+          <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+        </li>
+      </menu>
+      <div>
+        <h2>部屋一覧<h2>
+        <div>
+          
+        </div>
+      </div>
+    <% else %>
+      <div class="top-bgimg absolute"></div>
+      <div class="top-bgcover absolute animation"></div>
+      <div class="delay-animation">
+        <div class="absolute title">EDU.ROOM</div>
+        <div class="absolute subTitle">「教えたい」と「教わりたい」を繋ぐ部屋。</div>
+        
+        <%= link_to new_user_session_path, class: "absolute button2" do %>
+          <p class="clik">Sign in</p>
+          <div class="hoveur"></div>
+        <% end %>
+      </div>
+    <% end %>
+  </body>
+</html>

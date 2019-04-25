@@ -10,4 +10,10 @@ class ReviewsController < ApplicationController
   def destroy
 
   end
+
+  private
+
+    def review_params
+      
+    end
 end
