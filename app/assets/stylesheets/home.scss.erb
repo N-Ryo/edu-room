@@ -1,0 +1,146 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.top {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.absolute {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  margin: auto;
+}
+
+.top-bgimg{
+  background-image: image-url('top.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  width: 100%;
+  height: 100vh;
+  z-index: -2;
+}
+
+.top-bgcover{
+  background-color: rgb(0, 0, 0);
+  width: 100%;
+  height: 100vh;
+  z-index: -1;
+}
+
+.title {
+  width: 75%;
+  height: 0;
+  text-align: center;
+  font-weight: 600;
+  color: white;
+  font-size: calc(16px + 5vw);
+}
+
+.subTitle {
+  width: 80%;
+  height: 0;
+  text-align: center;
+  color: white;
+  font-size: 15px;
+  top: -140px !important;
+}
+
+.topButton {
+  bottom: -300px !important;
+  width: 20%;
+  height: 35px;
+  border-radius: 5px;
+  background-color: #eee;
+}
+.button2 {
+  bottom: 400px !important;
+  margin-bottom: -300px;
+  width : 20%;
+  height : 30px;
+  background : #3B6450 !important;
+  overflow : hidden;
+  text-align : center;
+  transition : .2s;
+  cursor : pointer;
+  border-radius : 50px;
+  text-decoration: none !important;
+}
+.hoveur {
+  background : linear-gradient(rgba(255,255,255,255),rgba(204,204,204,204));
+  width : 200px;
+  height : 50px;
+  margin-top : -50px;
+  transform : rotate(40deg);
+  margin-left : -180px;
+  opacity : 0.3;
+  transition : .5s;
+}
+.button2:hover .hoveur{
+  margin-left : 220px;
+}
+
+.clik {
+  color : white;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+@media (min-width: 800px) {
+  .subTitle {
+    font-size: calc(2vw + 9px);
+  }
+}
+
+@keyframes topPage {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: .7;
+  }
+}
+
+@-webkit-keyframes topPage {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: .7;
+  }
+}
+
+
+@keyframes topPageText {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes topPageText {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animation {
+  opacity: 0;
+  animation: 2.5s ease 0s 1 running forwards topPage;
+}
+
+.delay-animation {
+  opacity: 0;
+  animation: 2s ease 3s 1 running forwards topPageText;
+}
+
