@@ -42,13 +42,19 @@
   </head>
 
   <body>
-    <div>
-      <% if user_signed_in? %>
-          <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
-      <% else %>
-          <%= link_to 'Sign in', new_user_session_path %>
-      <% end %>
-    </div>
+      <menu>
+        <li><%= link_to "EDU.ROOM", root_path %></li>
+        <li><a class="subject">科目</a></li>
+        <li>
+          <% if user_signed_in? %>
+            <%= link_to  "マイページ", @user %>
+            <%= link_to  "部屋を作る", new_post_path %>
+            <%= link_to 'Sign out', destroy_user_session_path, method: :delete %>
+          <% else %>
+            <%= link_to 'Sign in', new_user_session_path %>
+          <% end %>
+        </li>
+      </menu>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>

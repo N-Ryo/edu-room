@@ -1,6 +1,10 @@
 class HomeController < ApplicationController
   def index
-    @posts = Post.includes(:users).all
-    render layout: false 
+    if @user = current_user
+      @posts = Post.includes(:user).all
+      render 'posts/index'
+    else
+      render layout: false 
+    end
   end
 end

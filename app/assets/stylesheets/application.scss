@@ -20,3 +20,17 @@
    height: 100vh;
    margin: 0;
  }
+
+menu {
+  background-color: #3B6450;
+  color: white;
+}
+
+menu li {
+  display: inline-block;
+  list-style: none;
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}
