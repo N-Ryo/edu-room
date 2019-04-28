@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
+  resources :messages
   root to: "home#index"
+  # get '/posts/:id/room', to: 'posts#room'
   resources :posts do
     resources :reviews
   end
