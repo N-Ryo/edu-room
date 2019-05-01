@@ -1,17 +1,25 @@
 
-<div class="container">
-  <% @posts.each do |post| %>
-    <div class="item">
-      <div class="tape"><%= post.title %></div>
-      <div>講師ID：<%= post.user.id %></div>
-      <div><%= post.description %></div>
-      <div>受講者数：<%= post.users.count %></div>
-      <div>
-        <% if post.user != current_user %>
-          <%=  link_to  "#{ current_user.attend?(post) ? "入室" : "受講" }する", "/posts/#{post.id}/room"%>
-          <%= link_to  "レビュー", new_post_review_path(post.id) %>
-        <% end %>
+<ul class="bxslider">
+  <% @posts.each_with_index do |post, i| %>
+    <% if (i % 12) == 0 %>
+      <div class="container">
+    <% end %>
+      <li>
+          <div class="item">
+            <div class="tape"><%= post.title %></div>
+            <div>講師ID：<%= post.user.id %></div>
+            <div><%= post.description %></div>
+            <div>受講者数：<%= post.users.count %></div>
+            <div>
+              <% if post.user != current_user %>
+                <%=  link_to  "#{ current_user.attend?(post) ? "入室" : "受講" }する", "/posts/#{post.id}/room"%>
+                <%= link_to  "レビュー", new_post_review_path(post.id) %>
+              <% end %>
+            </div>
+          </div>
+    </li>
+    <% if (i % 12) == 11 || @posts.count == i + 1 %>
       </div>
-    </div>
+    <% end %>
   <% end %>
-</div>
+</ul>

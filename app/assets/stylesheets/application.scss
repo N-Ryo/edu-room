@@ -44,6 +44,24 @@ menu li {
   }
 }
 
+.bx-viewport {
+  height: auto !important;
+}
+
+.bx-clone {
+  float: none;
+}
+.bx-wrapper {
+  background-color: transparent;
+  margin: 0px auto 0px;
+  border: none;
+  box-shadow: none;
+}
+.bx-wrapper img {
+  display: block;
+  margin: 0px auto;
+}
+
 .container {
   display: grid;
   grid-template-columns: 50% 1fr;
@@ -60,6 +78,7 @@ menu li {
     margin: 10px 5px;
     color: #65513f;
     box-sizing: border-box;
+    height: 125px;
   }
   .tape{
     position: absolute;
