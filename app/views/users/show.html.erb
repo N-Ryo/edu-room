@@ -1,0 +1,19 @@
+<div>講師ID：<%= @user.id %></div>
+<div>開設部屋数：<%= @posts.count %></div>
+<div>
+  <% @posts.each do |post| %>
+    <div>
+      <div><%= post.title %></div>
+      <div><%= post.description %></div>
+      <div>受講者数：<%= post.users.count %></div>
+      <div>
+        <% if @user != current_user %>
+          <%= link_to  "受講する", "/posts/#{post.id}/room" %>
+          <%= link_to  "レビュー", new_review_path(post.id) %>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div></div>
+<div></div>

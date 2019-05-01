@@ -1,4 +1,11 @@
-<p id="notice"><%= notice %></p>
+<div>
+  <p><%= @post.title %></p>
+  <p>講師ID：<%= @user.id %></p>
+  <p><%= @post.description %></p>
+</div>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<% if @post.user_id == current_user.id %>
+  <%= link_to '編集する', edit_post_path(@post) %>
+<% else %>
+  <%= link_to  "教わりにいく", "#" %>
+<% end %>

@@ -1,0 +1,28 @@
+
+<div>
+  <h1><%= @post.title %></h1><h3>-<%= @post.description %>-</h3>
+</div>
+
+<div>
+  <div>
+    受講人数：<%= @post.users.count %>
+  </div>
+  <div>
+    投稿数：<%= @post.messages.count %>
+  </div>
+</div>
+
+<div>
+</div>
+<% @messages.each do |message| %>
+  <%= image_tag message.image_url if message.image_url %>
+  <%= message.content %>
+<% end %>
+
+<div class="form-btn" id="form-btn">FA</div>
+
+<div class="modal-bg" id="modal-bg">
+  <div class="modal">
+    なんやいろいろ
+  </div>
+</div>
