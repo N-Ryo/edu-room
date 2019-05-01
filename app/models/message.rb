@@ -1,6 +1,6 @@
 class Message < ApplicationRecord
-  belongs_to :teacher, class_name: "User"
-  belongs_to :student, class_name: "User"
-  validates :teacher_id, presence: true
-  validates :student_id, presence: true
+  belongs_to :post
+  belongs_to :user
+  validates :post_id, presence: true
+  validates :user_id, presence: true
 end

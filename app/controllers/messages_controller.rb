@@ -4,7 +4,13 @@ class MessagesController < ApplicationController
   # GET /messages
   # GET /messages.json
   def index
-    @messages = Message.all
+    @post = Post.find(params[:id])
+    unless current_user.attend?(@post)
+      current_user.attend(@post)
+      flash[:notice] = "#{@post.title}を受講しました。"
+    else
+      @messages = Message.where(post_id: @post.id)
+    end
   end
 
   # GET /messages/1

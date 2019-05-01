@@ -8,7 +8,7 @@
       <div>受講者数：<%= post.users.count %></div>
       <div>
         <% if @user != current_user %>
-          <%= link_to  "受講する", "#" %>
+          <%= link_to  "受講する", "/posts/#{post.id}/room" %>
           <%= link_to  "レビュー", new_review_path(post.id) %>
         <% end %>
       </div>

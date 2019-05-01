@@ -30,10 +30,13 @@ end
 
 30.times do |i|
   #受講する（リレーション）
-  uid = i + 1
+  user = User.find(i + 1)
   10.times do |j|
-    pid = i + j + 1
-    PostUser.create!(user_id: uid, post_id: pid)
+    post = Post.find(i + j + 1)
+    unless PostUser.where(user_id: user.id, post_id: post.id)
+      PostUser.create!(user_id: user.id, post_id: post.id)
+    end
+    user.attend(post) unless user.attend?(post)
   end
 end
 
