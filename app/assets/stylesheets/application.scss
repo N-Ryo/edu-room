@@ -32,13 +32,16 @@ body {
   @include box_sizing;
 }
 
+a {
+  text-decoration: none;
+  &:hover {
+    background-color: inherit;
+  }
+}
+
 menu li {
   display: inline-block;
   list-style: none;
-  a {
-    text-decoration: none;
-    color: white;
-  }
 }
 
 .bx-viewport {
@@ -59,7 +62,7 @@ menu li {
 .container {
   display: grid;
   grid-template-columns: 50% 1fr;
-  @media (min-width: 768px){
+  @media (min-width: 892px){
     grid-template-columns: 33% 33% 1fr;
   }
   .item {
@@ -73,6 +76,33 @@ menu li {
     color: #65513f;
     box-sizing: border-box;
     height: 125px;
+    -moz-transition: -moz-transform 0.1s cubic-bezier(0.42, 0, 0.58, 1.0);
+    -webkit-transition: -webkit-transform 0.1s cubic-bezier(0.42, 0, 0.58, 1.0);
+    -o-transition: -o-transform 0.1s cubic-bezier(0.42, 0, 0.58, 1.0);
+    -ms-transition: -ms-transform 0.1s cubic-bezier(0.42, 0, 0.58, 1.0);
+    transition: transform 0.1s cubic-bezier(0.42, 0, 0.58, 1.0);
+    &:hover {
+      -webkit-transform: scale(1.03);
+      -moz-transform: scale(1.03);
+      -o-transform: scale(1.03);
+      -ms-transform: scale(1.03);
+      transform: scale(1.03);
+    }
+    .item-link {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      text-indent:-999px;
+      z-index: 2;
+      opacity: 0;
+    }
+    .other-link {
+      display: inline-block;
+      position: relative;
+      z-index: 3
+    }
   }
   .tape{
     position: absolute;
@@ -84,6 +114,12 @@ menu li {
     padding: 0.25em 2em;
     color: #65513f;
     transform: rotate(-3deg);
+  }
+  .tapeT {
+    left: 100px;
+  }
+  .tapeJ {
+    left: 10px; 
   }
 }
 

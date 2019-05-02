@@ -4,19 +4,21 @@
     <% if (i % 12) == 0 %>
       <div class="container">
     <% end %>
-      <li>
-          <div class="item">
-            <div class="tape"><%= post.title %></div>
-            <div>講師ID：<%= post.user.id %></div>
-            <div><%= post.description %></div>
-            <div>受講者数：<%= post.users.count %></div>
-            <div>
-              <% if post.user != current_user %>
-                <%=  link_to  "#{ current_user.attend?(post) ? "入室" : "受講" }する", "/posts/#{post.id}/room"%>
-                <%= link_to  "レビュー", new_post_review_path(post.id) %>
-              <% end %>
-            </div>
+    <li>
+      <div class="item">
+        <%= link_to "", post, class: "item-link" %>
+        <div class="tape tapeJ">科目</div>
+        <div class="tape tapeT"><%= post.title.truncate(15) %></div>
+        <div>講師ID：<%= post.user.id %></div>
+        <div><%= post.description.truncate(30) %></div>
+        <div>受講者数：<%= post.users.count %></div>
+        <% if post.user != current_user %>
+          <div class="other-link">
+            <%= link_to "#{ current_user.attend?(post) ? "入室" : "受講" }する", "/posts/#{post.id}/room" %>
+            <%= link_to "レビュー", new_post_review_path(post.id) %>
           </div>
+        <% end %>
+      </div>
     </li>
     <% if (i % 12) == 11 || @posts.count == i + 1 %>
       </div>
