@@ -42,10 +42,48 @@
   </head>
 
   <body>
+    <h1 class="eduroom"><%= link_to "EDU.ROOM", root_path %></h1>
+    <hr>
+    <div id="container">
+      <ul id="menu">
+        <li><a href="#">About Me</a>
+          <ul>
+            <li><a href="#">Lorem ipsum dolor</a></li>
+            <li><a href="#">Maecenas lacinia sem</a></li>
+            <li><a href="#">Suspendisse fringilla</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Portfolio</a>
+          <ul>
+            <li><a href="#">Lorem ipsum dolor</a></li>
+            <li><a href="#">Maecenas dignissim fermentum luctus</a></li>
+            <li><a href="#">Suspendisse fringilla</a></li>
+            <li><a href="#">Lorem ipsum dolor</a></li>
+            <li><a href="#">Maecenas lacinia sem</a></li>
+            <li><a href="#">Suspendisse fringilla</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Clients</a>
+          <ul>
+            <li><a href="#">Lorem ipsum dolor</a></li>
+            <li><a href="#">Maecenas lacinia sem</a></li>
+            <li><a href="#">Suspendisse fringilla</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Contact Me</a>
+          <ul>
+            <li><a href="#">Lorem ipsum dolor</a></li>
+            <li><a href="#">Maecenas dignissim fermentum luctus</a></li>
+            <li><a href="#">Suspendisse fringilla</a></li>
+          </ul>
+        </li>
+        <li><a href="#">Support</a></li>
+      </ul>
+      </div>
+    <% if false %>
       <menu>
-        <li><%= link_to "EDU.ROOM", root_path %></li>
-        <li><a class="subject">科目</a></li>
-        <li>
+        <li class="subject"><a>科目</a></li>
+        <li class="settings">
           <% if user_signed_in? %>
             <%= link_to  "マイページ", @user %>
             <%= link_to  "部屋を作る", new_post_path %>
@@ -55,6 +93,7 @@
           <% end %>
         </li>
       </menu>
+    <% end %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
